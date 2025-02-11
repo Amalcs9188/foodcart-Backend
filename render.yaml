@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: dwiggy-backend
+    env: docker
+    buildCommand: docker build -t dwiggy-backend .
+    startCommand: docker run -p $PORT:3000 dwiggy-backend
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: ADMIN_URL
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_SECRET
+        sync: false 

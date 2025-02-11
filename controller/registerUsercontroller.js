@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+
+import bcrypt from "bcryptjs";
 import Usermodel from "../model/registerUser.js";
 import validator from "validator";
 

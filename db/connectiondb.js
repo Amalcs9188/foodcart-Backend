@@ -6,10 +6,11 @@ import mongoose from "mongoose";
 
 
 export const connectDB = async () => {
-    
-        await mongoose.connect('mongodb+srv://amalcs645:amalcs645@cluster0.qimvj.mongodb.net/Foodcart').then(()=>{
-            console.log("Database connected")
-        })
-       
-    
+    try {
+        await mongoose.connect(process.env.MONGODB_URI);
+        console.log("Database connected successfully");
+    } catch (error) {
+        console.error("Database connection failed:", error);
+        process.exit(1);
+    }
 };
